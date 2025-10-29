@@ -77,3 +77,14 @@ input{
     border-style: none;
     font-size: large;
 }
+
+
+.tcLabel{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 25px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border-style: none;
+    font-size: large;
+}
