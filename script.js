@@ -1,15 +1,19 @@
 window.onload = async function(){
 
-let values = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100,
-110, 120, 130, 140, 150, 160, 170, 180, 190, 200,
-210, 220, 230, 240, 250, 260, 270, 280, 290, 300,
-310, 320, 330, 340, 350, 360, 370, 380, 390, 400,
-410, 420, 430, 440, 450, 460, 470, 480, 490, 500];
+let values = [];
+var sleepVar = 10;
 
 function renderValues(){
-    document.getElementById("sandboxValues").innerHTML = '';
-    for(let i=0; i < values.length; i++){
-        document.getElementById("sandboxValues").innerHTML += '<div class="bar" style="height: '+ values[i] +'px"></div>';
+    const sandbox = document.getElementById("sandboxValues");
+    sandbox.innerHTML = '';
+    const barWidth = 100.0 / values.length;
+
+    for (let i=0; i< values.length; i++){
+        const bar = document.createElement('div');
+        bar.classList.add('bar');
+        bar.style.width = barWidth + '%';
+        bar.style.height = values[i]+'px';
+        sandbox.appendChild(bar);
     }
 }
 
@@ -35,7 +39,7 @@ async function bubbleSort() {
                 values[j] = values[j + 1]
                 values[j + 1] = temp
 
-                await sleep(20);
+                await sleep();
                 renderValues();
             }
         }
@@ -53,16 +57,24 @@ async function insertionSort() {
         }
         values[j + 1] = key;
 
-        await sleep(20);
+        await sleep();
         renderValues();
     }
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function sleep() {
+    return new Promise(resolve => setTimeout(resolve, sleepVar));
 }
 
+function fillArray (size){
+    values = [];
+    const step = 500 / size;
+    for(let i = 1; i<= size; i++){
+        values.push(i*step);
+    }
+}
 
+fillArray(50);
 renderValues();
 
 document.getElementById("randomizeButton").onclick = function(){
@@ -78,6 +90,15 @@ document.getElementById("bubbleSortButton").onclick = function(){
 document.getElementById("insertionSortButton").onclick = function(){
     insertionSort();
     renderValues();
+}
+
+document.getElementById("setSizeButton").onclick = function(){
+    fillArray(parseInt(document.getElementById("sizeInput").value));
+    renderValues();
+}
+
+document.getElementById("setSpeedButton").onclick = function(){
+    sleepVar = parseInt(document.getElementById("speedInput").value);
 }
 
 }

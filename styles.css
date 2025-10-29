@@ -18,11 +18,34 @@ button{
     font-size: large;
 }
 
+label{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    border-style: none;
+    font-size: large;
+}
+
+input{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    color:black;
+    margin-top: 25px;
+    background-color: azure;
+    width: 50px;
+    height: 20px;
+    padding: 10px;
+}
+
 .sandbox{
     display: flex;
     justify-content: center;
     align-items: flex-end;
     height: 500px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .bar{
@@ -36,6 +59,21 @@ button{
 .buttonContainer{
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
 }
 
+.inputContainerAndTimeComplexity{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.optionButton{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 20px;
+    width: 75px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: none;
+    font-size: large;
+}
